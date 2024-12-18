@@ -19,19 +19,23 @@ public class MiddleEarthBattle {
         p[1].defensa = 3;
 
         System.out.println("¡Bienvenido a la batalla en la Tierra Media!");
-        System.out.println("Frodo contra un Orco. ¡Que comience el combate!");
+        System.out.println("Frodo contra un Orco. ¡Que comience el combate!\n");
 
         do {
+            System.out.println("Turno de Frodo:");
             p[0].atacar(p[1]);
-            System.out.println("");
             pulsarEnter();
+            System.out.println("Turno del Orco:");
             p[1].atacar(p[0]);
             pulsarEnter();
-        } while (p[0].estaVivo() || p[1].estaVivo());
+        } while (p[0].estaVivo() && p[1].estaVivo());
 
-
-
-
+        if (p[0].estaVivo()){
+            System.out.println("¡" + p[0].nombre + " ha ganado la batalla!");
+        } else {
+            System.out.println("¡" + p[1].nombre + " ha ganado la batalla!");
+        }
+        System.out.println("¡Fin del juego!");
 
     }
 }

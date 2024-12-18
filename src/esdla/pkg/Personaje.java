@@ -9,10 +9,11 @@ public class Personaje {
     int vida;
     int ataque;
     int defensa;
+    int danyo;
 
     //MÉTODOS
     boolean estaVivo(){
-        if(this.vida > 0){
+        if(vida > 0){
             return true;
         } else {
             return false;
@@ -24,24 +25,20 @@ public class Personaje {
     }
 
    void atacar(Personaje p){
-        //si daño mayor a 0 hay que restar el daño a la vida del personaje pasado por parámetro
-        //si el daño no es >0 mostrar mensaje "no logra causar daño"
-        int danyo;
-        danyo = ataque - this.defensa;
+        danyo = this.ataque - p.defensa;
         if(danyo > 0){
-            this.vida = this.vida - danyo;
-            System.out.println("La vida de " + p.nombre + " es de: " + this.vida);
+            p.vida = p.vida - danyo;
+            System.out.println(nombre + " ataca a " + p.nombre + " y causa " + danyo + " puntos de daño.");
+            System.out.println("La vida de " + p.nombre + " es de: " + p.vida + "\n");
         } else {
-            System.out.println(p.nombre +" ataca a " + p.nombre + " pero no logra causar daño");
+            System.out.println(p.nombre +" ataca a " + p.nombre + " pero no logra causar daño" + "\n");
         }
     }
 
     public static void pulsarEnter(){
-        try {
-            System.out.println("Presiona Enter para continuar..."); scan.nextLine();
-        } catch (Exception e){
-            System.out.println("Error. No has pulsado enter." + e.getMessage());
-        }
+
+        System.out.println("Presiona Enter para continuar...");
+        scan.nextLine();
 
     }
 
